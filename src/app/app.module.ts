@@ -8,7 +8,8 @@ import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { HttpClientModule } from '@angular/common/http';
 // Define the AppModule
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { ButtonModule } from 'primeng/button';
     CheckboxModule,
     FormsModule,
     ButtonModule,
+    InputTextModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

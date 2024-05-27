@@ -1,33 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Todo } from './todo';
+import { AppService } from './app.service';
+import { CheckboxChangeEvent } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
+export class AppComponent implements OnInit {
 
-export class AppComponent {
-  title = 'list-app';
-  todos = [
-    {
-      id: 1,
-      task: 'first todo',
-      completed: false,
-    },
-    {
-      id: 2,
-      task: 'fisecondrst todo',
-      completed: true,
-    },
+  @ViewChild('todoTask') todoTask: any;
 
-  ]
+  task = '';
+  todos: Todo[] = [];
 
-  updateToDo(e: unknown, todo: Todo) {
-    console.log(e, todo)
+  constructor(private appService: AppService) {
   }
 
-  deleteTodo(e: unknown, id: Todo['id']){
-      console.log(e, id)
+  ngOnInit(): void {
+    this.getList();
+  }
+
+  getList() {
+    this.appService.getTodoList().subscribe(
+      response => {
+        this.todos = response;
+      }
+    )
+  }
+
+  updateTodo(e: CheckboxChangeEvent, todo: Todo) {
+    this.appService.updateTodo({ ...todo, completed: e.checked }).subscribe(
+      response => console.log(response)
+    )
+  }
+
+  deleteTodo(e: unknown, id: Todo['id']) {
+    this.appService.deleteTodo(id).subscribe(
+      response => this.getList()
+    )
+  }
+
+  addTodo() {
+    this.appService.addTodo({ task: this.task, completed: false }).subscribe(
+      response => {
+        this.todoTask.reset();
+        this.getList();
+      }
+    )
   }
 }
