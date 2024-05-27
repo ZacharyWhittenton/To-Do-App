@@ -1,13 +1,28 @@
 {
   "todos": [
     {
-      "id": "3f5f",
-      "task": "sdadas",
+      "id": "5a64",
+      "task": "wake up",
+      "completed": true
+    },
+    {
+      "id": "a8a2",
+      "task": "eat breakfast",
       "completed": false
     },
     {
-      "id": "0bdc",
-      "task": "sdasa",
+      "id": "12b2",
+      "task": "go on walk",
+      "completed": false
+    },
+    {
+      "id": "c8ab",
+      "task": "eat lunch",
+      "completed": false
+    },
+    {
+      "id": "3299",
+      "task": "sleep",
       "completed": false
     }
   ]
