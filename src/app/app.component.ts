@@ -26,4 +26,8 @@ export class AppComponent {
   updateToDo(e: unknown, todo: Todo) {
     console.log(e, todo)
   }
+
+  deleteTodo(e: unknown, id: Todo['id']){
+      console.log(e, id)
+  }
 }
