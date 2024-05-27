@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Todo } from './todo';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,21 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'list-app';
+  todos = [
+    {
+      id: 1,
+      task: 'first todo',
+      completed: false,
+    },
+    {
+      id: 2,
+      task: 'fisecondrst todo',
+      completed: true,
+    },
+
+  ]
+
+  updateToDo(e: unknown, todo: Todo) {
+    console.log(e, todo)
+  }
 }
