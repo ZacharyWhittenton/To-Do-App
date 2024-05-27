@@ -1,7 +1,9 @@
 // Import necessary Angular modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
+import { CardModule } from 'primeng/card';
 
 // Define the AppModule
 @NgModule({
@@ -9,7 +11,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
